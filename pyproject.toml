@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hyperserve"
+version = "2.0.0"
+description = "Disaggregated LLM Serving with Radix-Tree Caching"
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.2.0",
+    "fastapi>=0.109.0",
+    "uvicorn[standard]>=0.27.0",
+    "pydantic>=2.0.0",
+    "pydantic-settings>=2.0.0",
+    "structlog>=24.1.0",
+    "numpy>=1.26.0",
+    "python-dotenv>=1.0.0",
+    # Triton is Linux-only. If on Windows/Mac, this installation is skipped or ignored gracefully.
+    "triton>=2.2.0; platform_system=='Linux'" 
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
